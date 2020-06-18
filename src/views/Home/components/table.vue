@@ -23,16 +23,28 @@
       @bulkUpdate="bulkUpdate"
       @bulkDelete="bulkDelete"
     />
-    <b-modal id="modal" ref="modal-1-ref" title="Update Data">
+    <b-modal
+      id="modal"
+      ref="modal-1-ref"
+      hide-footer
+      :hide-header-close="true"
+      no-close-on-backdrop
+      no-close-on-esc
+      header-bg-variant="secondary"
+      footer-bg-variant="secondary"
+    >
       <UpdateData :data="data" @closeModal="closeModal" />
-      <template v-slot:modal-footer>
-        <div class="w-100 h-auto"></div>
-      </template>
     </b-modal>
-    <b-modal id="modal-2" ref="modal-2" hide-footer>
-      <template v-slot:modal-title>
-        <code>Data Details</code>
-      </template>
+    <b-modal
+      id="modal-2"
+      ref="modal-2"
+      hide-footer
+      :hide-header-close="true"
+      no-close-on-backdrop
+      no-close-on-esc
+      header-bg-variant="success"
+      footer-bg-variant="success"
+    >
       <div class="d-block text-center">
         <h3>{{ data.name }}</h3>
         <h3>{{ data.username }}</h3>
@@ -45,7 +57,16 @@
         >Close Detail</b-button
       >
     </b-modal>
-    <b-modal id="modal-3" ref="modal-3" hide-footer>
+    <b-modal
+      id="modal-3"
+      ref="modal-3"
+      hide-footer
+      :hide-header-close="true"
+      no-close-on-backdrop
+      no-close-on-esc
+      header-bg-variant="danger"
+      footer-bg-variant="danger"
+    >
       <Confirmation
         v-if="forDelete.length !== 0"
         :selection="forDelete"
@@ -277,6 +298,8 @@ export default {
       this.$store.commit("SET_LOADING", false);
       this.$refs["modal-2"].hide();
       this.$refs["modal-3"].hide();
+      this.data = {};
+      this.forDelete = [];
     },
     updateData(index) {
       this.data = this.tableData[index];

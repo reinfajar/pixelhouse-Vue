@@ -42,7 +42,7 @@ export default {
       if (this.selection.length === 1) {
         this.$store.commit("DELETE_DATA", this.selection[0]);
       } else {
-        this.$store.commit("BULK_DELETE", this.selections);
+        this.$store.commit("BULK_DELETE", this.selection);
       }
       this.$emit("closeModal");
     },

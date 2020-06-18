@@ -58,7 +58,20 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button type="submit" variant="dark">Submit</b-button>
+      <b-button
+        class="mt-3"
+        variant="outline-success"
+        block
+        @click.prevent="submit"
+        >Submit</b-button
+      >
+      <b-button
+        class="mt-2"
+        variant="outline-warning"
+        block
+        @click.prevent="cancel"
+        >Cancel</b-button
+      >
     </b-form>
   </div>
 </template>
@@ -126,6 +139,9 @@ export default {
         variant: "danger",
         solid: true
       });
+    },
+    cancel() {
+      this.$emit("closeModal");
     }
   },
   created() {

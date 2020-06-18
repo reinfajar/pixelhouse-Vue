@@ -47,8 +47,7 @@ const store = {
       state.tableData.forEach((el, i) => {
         payload.forEach(x => {
           if (el.id === x.id) {
-            console.log(x);
-            state.tableData.splice(i, i + 1);
+            state.tableData.splice(i, 1);
           }
         });
       });
