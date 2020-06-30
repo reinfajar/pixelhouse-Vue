@@ -62,7 +62,7 @@
         class="mt-3"
         variant="outline-success"
         block
-        @click.prevent="submit"
+        @click.prevent="onSubmit"
         >Submit</b-button
       >
       <b-button
